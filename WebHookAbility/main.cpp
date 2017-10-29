@@ -201,7 +201,7 @@ static std::string RunWebHook(const std::string aesKey, const std::string hash, 
 		std::replace(modulus.begin(), modulus.end(), '=', '$');
 		replaceAll(encodedEM2, "+", "%2B");
 		replaceAll(modulus, "+", "%2B");
-		query = "obj=command="+ encodedEM +"*id="+ userId +"*c=" + modulus + "*r=" + string_to_hex(strCipherTextRSA) + "*l="+ encodedIV +"&rct=application/json";
+		query = "obj=command="+ encodedEM2 +"*id="+ userId +"*c=" + modulus + "*r=" + string_to_hex(strCipherTextRSA) + "*l="+ encodedIV +"&rct=application/json";
 		curl_easy_setopt(curl_handle, CURLOPT_POSTFIELDS, query.c_str());
 		res = curl_easy_perform(curl_handle);
 		if (res != CURLE_OK) {
